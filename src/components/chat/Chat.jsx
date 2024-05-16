@@ -175,6 +175,10 @@ const Chat = () => {
           }
           value={text}
           onChange={(e) => setText(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter")
+                handleSend();
+            }}
           disabled={isCurrentUserBlocked || isReceiverBlocked}
         />
         <div className="emoji">

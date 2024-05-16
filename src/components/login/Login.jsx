@@ -65,6 +65,8 @@ const Login = () => {
       });
 
       toast.success("Account created! You can login now!");
+      e.target.reset();
+      setAvatar({file: null});
     } catch (err) {
       console.log(err);
       toast.error(err.message);
@@ -77,19 +79,11 @@ const Login = () => {
     e.preventDefault();
     setLoading(true);
 
-    console.log("1");
-
     const formData = new FormData(e.target);
-    console.log("2");
-
     const { email, password } = Object.fromEntries(formData);
-    console.log("3");
-
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      console.log("1",email,password);
-
     } catch (err) {
       console.log(err);
       toast.error(err.message);

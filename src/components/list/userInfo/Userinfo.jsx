@@ -1,9 +1,14 @@
 import "./userInfo.css"
 import { useUserStore } from "../../../lib/userStore";
+import { auth } from "../../../lib/firebase";
 
 const Userinfo = () => {
 
   const { currentUser } = useUserStore();
+
+  const handleLogout = () => {
+    auth.signOut();
+  };
 
   return (
     <div className='userInfo'>
@@ -14,7 +19,7 @@ const Userinfo = () => {
       <div className="icons">
         <img src="./more.png" alt="" />
         <img src="./video.png" alt="" />
-        <img src="./edit.png" alt="" />
+        <button onClick={handleLogout}>Logout</button>
       </div>
     </div>
   )
