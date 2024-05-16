@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import "./chatList.css";
-import AddUser from "./addUser /addUser";
 import { useUserStore } from "../../../lib/userStore";
 import { doc, getDoc, onSnapshot, updateDoc } from "firebase/firestore";
 import { db } from "../../../lib/firebase";
 import { useChatStore } from "../../../lib/chatStore";
+import AddUser from "./addUser /addUser";
 
 const ChatList = () => {
   const [chats, setChats] = useState([]);
@@ -80,7 +80,7 @@ const ChatList = () => {
           />
         </div>
         <img
-          src={addMode ? "./minus.png" : "./plus.png"}
+          src={"./plus.png"}
           alt=""
           className="add"
           onClick={() => setAddMode((prev) => !prev)}
